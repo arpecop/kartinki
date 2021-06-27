@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import FacebookLogin from "react-facebook-login";
+import React, { useState } from 'react';
+import FacebookLogin from 'react-facebook-login';
 
 function App() {
   const [login, setLogin] = useState(false);
   const [data, setData] = useState({});
 
-  const responseFacebook = (response) => {
-    console.log(response);
+  const responseFacebook = response => {
     setData(response);
 
     if (response.accessToken) {
@@ -17,7 +16,7 @@ function App() {
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <>
         {!login && (
           <FacebookLogin
