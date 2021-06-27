@@ -5,7 +5,7 @@ function App() {
   const [login, setLogin] = useState(false);
   const [data, setData] = useState({});
 
-  const responseFacebook = response => {
+  const responseFacebook = (response) => {
     setData(response);
 
     if (response.accessToken) {
@@ -20,11 +20,15 @@ function App() {
       <>
         {!login && (
           <FacebookLogin
+            buttonStyle={{}}
             appId="281985576166744"
             autoLoad={false}
             fields="name,email"
             callback={responseFacebook}
             icon="fa-facebook"
+            cssClass="fbloginbutton"
+            textButton="Влез с Facebook"
+            language="bg_BG"
           />
         )}
 
