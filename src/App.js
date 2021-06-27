@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FacebookLogin from "react-facebook-login";
 
 function App() {
+  const [login, setLogin] = useState(false);
+  const [data, setData] = useState({});
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    setData(response);
+
+    if (response.accessToken) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="container">
+      <>
+        {!login && (
+          <FacebookLogin
+            appId="281985576166744"
+            autoLoad={false}
+            fields="name,email"
+            callback={responseFacebook}
+            icon="fa-facebook"
+          />
+        )}
+
+        {login && (
+          <>
+            {data.name}
+            {data.email}
+          </>
+        )}
+      </>
     </div>
   );
 }

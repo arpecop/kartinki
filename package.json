@@ -2,12 +2,25 @@
   "name": "facebook",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "autoprefixer": "^9",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "prettier": "^1.18.2",
+    "recoil-persist": "^0.7.0"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-facebook-login": "^4.1.1",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
