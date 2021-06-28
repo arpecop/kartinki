@@ -15,7 +15,7 @@ const Cardx = ({
       </a>
     )}
   >
-    <Card.Meta title={title[0].text} description={description[0].text} />
+    <Card.Meta title={title[0].text} description={<div>{description[0].text}</div>} />
   </Card>
 );
 export default Cardx;

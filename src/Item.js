@@ -36,13 +36,15 @@ const Item = ({ match }) => {
           { property: 'og:title', content: title[0].text },
           { property: 'og:site_name', content: 'Fishii.shop' },
           { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: `http://fishii.shop/${match.params.id}` },
+          {
+            property: 'og:url',
+            content: `https://3rgggdshyf.execute-api.us-east-1.amazonaws.com/dev?id=${media.url}&path=${match.params.id}`,
+          },
           { property: 'og:description', content: title[0].description },
           { property: 'og:image', content: media.url },
           { property: 'og:site_name', content: 'kartinki' },
         ]}
       />
-      ;
       <Cardx _meta={_meta} media={media} title={title} description={description} />
     </>
   );
