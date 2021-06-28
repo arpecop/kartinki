@@ -1,10 +1,9 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 import Cardx from './components/Card';
 
 const Item = ({ match }) => {
-  console.log(match.params.id);
-
   const GET_ITEM = gql`
     {
       allKartinkis(id: "${match.params.id}") {
@@ -30,6 +29,20 @@ const Item = ({ match }) => {
   } = data.allKartinkis.edges[0].node;
   return (
     <>
+      <Helmet
+        title={title[0].text}
+        meta={[
+          { name: 'author', content: 'kartinki' },
+          { property: 'og:title', content: title[0].text },
+          { property: 'og:site_name', content: 'Fishii.shop' },
+          { property: 'og:type', content: 'website' },
+          { property: 'og:url', content: `http://fishii.shop/${match.params.id}` },
+          { property: 'og:description', content: title[0].description },
+          { property: 'og:image', content: media.url },
+          { property: 'og:site_name', content: 'kartinki' },
+        ]}
+      />
+      ;
       <Cardx _meta={_meta} media={media} title={title} description={description} />
     </>
   );
