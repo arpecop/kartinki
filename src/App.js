@@ -59,25 +59,23 @@ function App() {
         )}
 
         <Row justify="center">
-          {login && (
-            <>
-              {data.allKartinkis.edges.map(({
-                node: {
-                  description, title, _meta, media,
-                },
-              }) => (
-                <Col xs={24} sm={20} md={17} lg={12} xl={6} key={_meta.id} style={{ margin: 10 }}>
-                  <Cardx
-                    description={description}
-                    title={title}
-                    _meta={_meta}
-                    media={media}
-                    user={user}
-                  />
-                </Col>
-              ))}
-            </>
-          )}
+          <>
+            {data.allKartinkis.edges.map(({
+              node: {
+                description, title, _meta, media,
+              },
+            }) => (
+              <Col xs={24} sm={20} md={17} lg={12} xl={6} key={_meta.id} style={{ margin: 10 }}>
+                <Cardx
+                  description={description}
+                  title={title}
+                  _meta={_meta}
+                  media={media}
+                  user={user}
+                />
+              </Col>
+            ))}
+          </>
         </Row>
       </>
     </div>
